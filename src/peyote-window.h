@@ -17,10 +17,21 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "peyote-application.h"
+#ifndef _peyote_window_h_
+#define _peyote_window_h_
 
-int main (int argc, char **argv)
+#include <gtk/gtk.h>
+
+typedef struct _PeyoteWindow
 {
-   return peyote_application_run(argc, argv) ;
-}
+   GtkBuilder *builder ;
+   GtkWindow  *window ;
+
+} PeyoteWindow ;
+
+PeyoteWindow *peyote_window_new() ;
+int peyote_window_initialize(PeyoteWindow *) ;
+void on_peyote_window_destroy() ;
+
+#endif /* _peyote_window_h_ */
 

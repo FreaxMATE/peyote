@@ -17,10 +17,12 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "peyote-application.h"
+#ifndef _peyote_application_h_
+#define _peyote_application_h_
 
-int main (int argc, char **argv)
-{
-   return peyote_application_run(argc, argv) ;
-}
+#include "peyote-window.h"
+
+int peyote_application_run(int argc, char **argv) ;
+
+#endif /* _peyote_application_h_ */
 

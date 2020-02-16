@@ -19,8 +19,14 @@
 
 #include "peyote-application.h"
 
-int main (int argc, char **argv)
+int peyote_application_run(int argc, char **argv)
 {
-   return peyote_application_run(argc, argv) ;
+   PeyoteWindow *peyote_window ;
+
+   gtk_init (&argc, &argv) ;
+   peyote_window = peyote_window_new() ;
+   peyote_window_initialize(peyote_window) ;
+   gtk_main() ;
+   return 0 ;
 }
 

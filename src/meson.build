@@ -1,6 +1,10 @@
 sources = [
   'main.c',
+  'peyote-application.c',
+  'peyote-window.c',
 ]
+
+add_project_arguments('-rdynamic', '-Wl,--export-dynamic', language : 'c')
 
 libgtk = dependency('gtk+-3.0')
 gmoddep = dependency('gmodule-2.0')

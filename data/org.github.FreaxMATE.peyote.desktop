@@ -8,6 +8,6 @@ Exec=peyote %F
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=GTK;GNOME;
+Categories=GTK;GNOME;Graphics;
 
 Name[en_GB]=org.github.FreaxMATE.peyote.desktop
