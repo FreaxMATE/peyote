@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Peyote
+GenericName=Guitar tab editor
+Comment=create guitar tabs
+Icon=org.github.FreaxMATE.peyote
+Exec=peyote %F
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;GNOME;
+
+Name[en_GB]=org.github.FreaxMATE.peyote.desktop

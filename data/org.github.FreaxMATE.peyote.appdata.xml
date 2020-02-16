@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+ <id>org.github.FreaxMATE.peyote</id>
+ <metadata_license>CC0-1.0</metadata_license>
+ <project_license>GPL-3.0+</project_license>
+ <name>Peyote</name>
+ <summary>A lightweight, gtk-based guitar tab creator</summary>
+ <description><p>Peyote is an open source guitar tab creator</p></description>
+ <url type="homepage">https://github.com/FreaxMATE/peyote</url>
+ <project_group>peyote</project_group>
+</component>
