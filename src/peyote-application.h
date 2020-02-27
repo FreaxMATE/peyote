@@ -22,11 +22,12 @@
 
 #include "peyote.h"
 #include "peyote-window.h"
+#include "peyote-menu.h"
 #include "peyote-tab.h"
 
 extern PeyoteApplication *peyote_application ;
 
-PeyoteApplication *peyote_application_new() ;
+PeyoteApplication *peyote_application_new(void) ;
 int peyote_application_initialize(int argc, char **argv) ;
 int peyote_application_run(int argc, char **argv) ;
 

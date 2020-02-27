@@ -17,31 +17,15 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "peyote-tab.h"
+#ifndef _peyote_filechooser_h_
+#define _peyote_filechooser_h_
 
-PeyoteTab *peyote_tab_new()
-{
-   PeyoteTab *new ;
-   new = malloc (sizeof(PeyoteTab)) ;
-   return new ;
-}
+#include <gtk/gtk.h>
 
-int peyote_tab_initialize()
-{
-   peyote_application->peyote_tab->text_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(
-     peyote_application->peyote_window->builder, "peyote_text_buffer")) ;
-   return 0 ;
-}
+#include "peyote.h"
+#include "peyote-application.h"
 
-int peyote_tab_read_file(char *filepath)
-{
-   if (!access(filepath, F_OK))
-   {
-      printf ("%s\n", filepath) ;
-   }
-   else
-      fprintf (stderr, "PEYOTE WARNING: \'%s\' does not exist\n", filepath) ;
-   
+char *peyote_filechooser_open_file(void) ;
 
-   return 0 ;
-}
+#endif /* _peyote_filechooser_h_ */
+

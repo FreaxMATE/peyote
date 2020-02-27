@@ -25,9 +25,9 @@
 #include "peyote.h"
 #include "peyote-application.h"
 
-PeyoteTab *peyote_tab_new() ;
-int peyote_tab_initialize(PeyoteTab *peyote_tab) ;
-int peyote_tab_read_file(PeyoteTab *peyote_tab, char *filepath) ;
+PeyoteTab *peyote_tab_new(void) ;
+int peyote_tab_initialize(void) ;
+int peyote_tab_read_file(char *filepath) ;
 
 #endif /* _peyote_tab_h_ */
 

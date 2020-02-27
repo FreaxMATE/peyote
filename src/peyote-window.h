@@ -26,9 +26,9 @@
 
 extern PeyoteApplication *peyote_application ;
 
-PeyoteWindow *peyote_window_new() ;
-int peyote_window_initialize() ;
-void on_peyote_window_destroy() ;
+PeyoteWindow *peyote_window_new(void) ;
+int peyote_window_initialize(void) ;
+void on_peyote_window_destroy(void) ;
 
 #endif /* _peyote_window_h_ */
 

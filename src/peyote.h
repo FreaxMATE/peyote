@@ -25,10 +25,12 @@
 typedef struct _PeyoteApplication PeyoteApplication ;
 typedef struct _PeyoteWindow PeyoteWindow ;
 typedef struct _PeyoteTab PeyoteTab ;
+typedef struct _PeyoteMenu PeyoteMenu ;
 
 typedef struct _PeyoteApplication
 {
    PeyoteWindow *peyote_window ;
+   PeyoteMenu   *peyote_menu ;
    PeyoteTab    *peyote_tab ;
 
 } PeyoteApplication ;
@@ -45,6 +47,13 @@ typedef struct _PeyoteTab
    GtkTextBuffer *text_buffer ;
 
 } PeyoteTab ;
+
+typedef struct _PeyoteMenu
+{
+   GtkImageMenuItem *peyote_menu_open ;
+   GtkImageMenuItem *peyote_menu_quit ;
+
+} PeyoteMenu ;
 
 
 #endif /* _peyote_h_ */

@@ -28,21 +28,19 @@ PeyoteWindow *peyote_window_new()
 
 int peyote_window_initialize()
 {
-   if (access("/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade", F_OK))
-      peyote_application->peyote_window->builder = gtk_builder_new_from_file ("../data/org.github.FreaxMATE.peyote.glade") ;
+   if (!access("/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade", F_OK))
+      peyote_application->peyote_window->builder = gtk_builder_new_from_file(
+        "/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade") ;
    else
-      peyote_application->peyote_window->builder = gtk_builder_new_from_file ("/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade") ;
+      peyote_application->peyote_window->builder = gtk_builder_new_from_file(
+        "../data/org.github.FreaxMATE.peyote.glade") ;
 
    gtk_builder_connect_signals(peyote_application->peyote_window->builder, NULL) ;
-   peyote_application->peyote_window->window = GTK_WINDOW(gtk_builder_get_object(peyote_application->peyote_window->builder, "peyote_window")) ;
+   peyote_application->peyote_window->window = GTK_WINDOW(gtk_builder_get_object(
+     peyote_application->peyote_window->builder, "peyote_window")) ;
    gtk_widget_show(GTK_WIDGET(peyote_application->peyote_window->window)) ;
 
    return 0 ;
-}
-
-void on_peyote_menu_quit_activate()
-{
-   on_peyote_window_destroy() ;
 }
 
 void on_peyote_window_destroy()

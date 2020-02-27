@@ -2,6 +2,8 @@ sources = [
   'main.c',
   'peyote-application.c',
   'peyote-window.c',
+  'peyote-filechooser.c',
+  'peyote-menu.c',
   'peyote-tab.c',
 ]
 
