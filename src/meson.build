@@ -2,6 +2,7 @@ sources = [
   'main.c',
   'peyote-application.c',
   'peyote-window.c',
+  'peyote-tab.c',
 ]
 
 add_project_arguments('-rdynamic', '-Wl,--export-dynamic', language : 'c')

@@ -20,8 +20,14 @@
 #ifndef _peyote_application_h_
 #define _peyote_application_h_
 
+#include "peyote.h"
 #include "peyote-window.h"
+#include "peyote-tab.h"
 
+extern PeyoteApplication *peyote_application ;
+
+PeyoteApplication *peyote_application_new() ;
+int peyote_application_initialize(int argc, char **argv) ;
 int peyote_application_run(int argc, char **argv) ;
 
 #endif /* _peyote_application_h_ */

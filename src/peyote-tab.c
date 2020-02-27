@@ -17,18 +17,23 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_window_h_
-#define _peyote_window_h_
+#include "peyote-tab.h"
 
-#include <gtk/gtk.h>
+PeyoteTab *peyote_tab_new()
+{
+   PeyoteTab *new ;
+   new = malloc (sizeof(PeyoteTab)) ;
+   return new ;
+}
 
-#include "peyote.h"
+int peyote_tab_initialize(PeyoteTab *peyote_tab)
+{
+   peyote_tab->text_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(
+                             peyote_application->peyote_window->builder, "peyote_text_buffer")) ;
+   return 0 ;
+}
 
-extern PeyoteApplication *peyote_application ;
-
-PeyoteWindow *peyote_window_new() ;
-int peyote_window_initialize() ;
-void on_peyote_window_destroy() ;
-
-#endif /* _peyote_window_h_ */
-
+int peyote_tab_read_file(PeyoteTab *peyote_tab, char *filepath)
+{
+   return 0 ;
+}

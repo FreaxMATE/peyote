@@ -19,8 +19,12 @@
 
 #include "peyote-application.h"
 
+PeyoteApplication *peyote_application ;
+
 int main (int argc, char **argv)
 {
+   peyote_application = peyote_application_new() ;
+   peyote_application_initialize(argc, argv) ;
    return peyote_application_run(argc, argv) ;
 }
 

@@ -19,14 +19,28 @@
 
 #include "peyote-application.h"
 
+PeyoteApplication *peyote_application_new()
+{
+   PeyoteApplication *new ;
+   new = malloc (sizeof(PeyoteApplication)) ;
+   return new ;
+}
+
+int peyote_application_initialize(int argc, char **argv)
+{
+   gtk_init (&argc, &argv) ;
+
+   peyote_application->peyote_window = peyote_window_new() ;
+   peyote_window_initialize(peyote_application->peyote_window) ;
+   peyote_application->peyote_tab = peyote_tab_new() ;
+   peyote_tab_initialize(peyote_application->peyote_tab) ;
+   return 0 ;
+}
+
 int peyote_application_run(int argc, char **argv)
 {
-   PeyoteWindow *peyote_window ;
-
-   gtk_init (&argc, &argv) ;
-   peyote_window = peyote_window_new() ;
-   peyote_window_initialize(peyote_window) ;
    gtk_main() ;
    return 0 ;
 }
+
 
