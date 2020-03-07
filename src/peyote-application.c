@@ -30,12 +30,12 @@ int peyote_application_initialize(int argc, char **argv)
 {
    gtk_init (&argc, &argv) ;
 
-   peyote_application->peyote_window = peyote_window_new() ;
+   peyote->peyote_window = peyote_window_new() ;
    peyote_window_initialize() ;
-   peyote_application->peyote_menu = peyote_menu_new() ;
+   peyote->peyote_menu = peyote_menu_new() ;
    peyote_menu_initialize() ;
 
-   peyote_application->peyote_tab = peyote_tab_new() ;
+   peyote->peyote_tab = peyote_tab_new() ;
    peyote_tab_initialize() ;
    return 0 ;
 }

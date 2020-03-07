@@ -25,7 +25,7 @@ char *peyote_filechooser_open_file()
    gint res ;
 
    dialog = gtk_file_chooser_dialog_new ("Open File",
-                                         peyote_application->peyote_window->window,
+                                         peyote->peyote_window->window,
                                          GTK_FILE_CHOOSER_ACTION_OPEN,
                                          "Cancel",
                                          GTK_RESPONSE_CANCEL,

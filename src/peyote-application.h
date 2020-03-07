@@ -25,7 +25,7 @@
 #include "peyote-menu.h"
 #include "peyote-tab.h"
 
-extern PeyoteApplication *peyote_application ;
+extern PeyoteApplication *peyote ;
 
 PeyoteApplication *peyote_application_new(void) ;
 int peyote_application_initialize(int argc, char **argv) ;

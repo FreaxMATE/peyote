@@ -24,7 +24,7 @@
 
 #include "peyote.h"
 
-extern PeyoteApplication *peyote_application ;
+extern PeyoteApplication *peyote ;
 
 PeyoteWindow *peyote_window_new(void) ;
 int peyote_window_initialize(void) ;

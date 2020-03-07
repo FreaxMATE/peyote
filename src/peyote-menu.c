@@ -28,10 +28,10 @@ PeyoteMenu *peyote_menu_new()
 
 int peyote_menu_initialize()
 {
-   peyote_application->peyote_menu->peyote_menu_open = GTK_IMAGE_MENU_ITEM(
-     gtk_builder_get_object(peyote_application->peyote_window->builder, "peyote_menu_open")) ;
-   peyote_application->peyote_menu->peyote_menu_quit = GTK_IMAGE_MENU_ITEM(
-     gtk_builder_get_object(peyote_application->peyote_window->builder, "peyote_menu_quit")) ;
+   peyote->peyote_menu->peyote_menu_open = GTK_IMAGE_MENU_ITEM(
+     gtk_builder_get_object(peyote->peyote_window->builder, "peyote_menu_open")) ;
+   peyote->peyote_menu->peyote_menu_quit = GTK_IMAGE_MENU_ITEM(
+     gtk_builder_get_object(peyote->peyote_window->builder, "peyote_menu_quit")) ;
 
    return 0 ;
 }

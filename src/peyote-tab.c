@@ -28,20 +28,27 @@ PeyoteTab *peyote_tab_new()
 
 int peyote_tab_initialize()
 {
-   peyote_application->peyote_tab->text_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(
-     peyote_application->peyote_window->builder, "peyote_text_buffer")) ;
+   peyote->peyote_tab->text_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(
+     peyote->peyote_window->builder, "peyote_text_buffer")) ;
    return 0 ;
 }
 
 int peyote_tab_read_file(char *filepath)
 {
-   if (!access(filepath, F_OK))
-   {
-      printf ("%s\n", filepath) ;
-   }
-   else
-      fprintf (stderr, "PEYOTE WARNING: \'%s\' does not exist\n", filepath) ;
-   
+   long text_buffer_size ;
+
+   peyote->peyote_tab->file = fopen(filepath, "r+") ;
+   if (peyote->peyote_tab->file == NULL)
+      fprintf (stderr, "PEYOTE ERROR: failed to open file") ;
+
+   fseek(peyote->peyote_tab->file, 0L, SEEK_END) ;
+   text_buffer_size = ftell(peyote->peyote_tab->file) ;
+   peyote->peyote_tab->content = calloc(text_buffer_size, sizeof(char)) ;
+   rewind(peyote->peyote_tab->file) ;
+   fread(peyote->peyote_tab->content, sizeof(char), text_buffer_size, peyote->peyote_tab->file) ;
+   fclose(peyote->peyote_tab->file) ;
+
+   gtk_text_buffer_set_text(peyote->peyote_tab->text_buffer, peyote->peyote_tab->content, -1) ;
 
    return 0 ;
 }

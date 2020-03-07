@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 
+
+Copyright (C) 
+
+This file is part of Peyote.
+
+Peyote is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Peyote is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: FreaxMATE
+
+-->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <!-- interface-license-type gplv3 -->
+  <!-- interface-name Peyote -->
+  <!-- interface-authors FreaxMATE -->
   <object class="GtkTextBuffer" id="peyote_text_buffer"/>
   <object class="GtkWindow" id="peyote_window">
     <property name="can_focus">False</property>
@@ -9,7 +33,7 @@
     <property name="default_height">480</property>
     <property name="startup_id">org.github.FreaxMATE.peyote</property>
     <signal name="destroy" handler="on_peyote_window_destroy" swapped="no"/>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -217,10 +241,17 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkTextView" id="peyote_text_view">
+              <object class="GtkScrolledWindow">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="buffer">peyote_text_buffer</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkTextView" id="peyote_text_view">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="buffer">peyote_text_buffer</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">True</property>

@@ -21,6 +21,7 @@
 #define _peyote_h_
 
 #include <gtk/gtk.h>
+#include <glib.h>
 
 typedef struct _PeyoteApplication PeyoteApplication ;
 typedef struct _PeyoteWindow PeyoteWindow ;
@@ -45,6 +46,9 @@ typedef struct _PeyoteWindow
 typedef struct _PeyoteTab
 {
    GtkTextBuffer *text_buffer ;
+   GtkTextIter   *start, *end ;
+   FILE *file ;
+   char *content ;
 
 } PeyoteTab ;
 
