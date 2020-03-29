@@ -401,7 +401,7 @@ Author: FreaxMATE
     <property name="attached_to">peyote_window</property>
     <property name="startup_id">org.github.FreaxMATE.peyote.aboutdialog</property>
     <property name="program_name">Peyote</property>
-    <property name="version">0.0.1rc</property>
+    <property name="version">0.0.1rc1</property>
     <property name="copyright" translatable="yes">Copyright © 2020 FreaxMATE</property>
     <property name="comments" translatable="yes">open source guitar tab creator</property>
     <property name="website">https://github.com/FreaxMATE/peyote</property>
