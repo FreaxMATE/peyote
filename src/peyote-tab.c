@@ -20,7 +20,8 @@
 #include "peyote-tab.h"
 
 char *peyote_tab_get_metadata_value_from_key(char *content, char *key) ;
-char *peyote_tab_get_tab(char *content) ;
+char *peyote_tab_get_tabs(char *content) ;
+char *peyote_tab_make_file_content(void) ;
 
 PeyoteTab *peyote_tab_new()
 {
@@ -33,6 +34,10 @@ int peyote_tab_initialize(char *path)
 {
    peyote->tab->tab_text = GTK_TEXT_BUFFER(gtk_builder_get_object(
      peyote->window->builder, "peyote_tab_text")) ;
+   peyote->tab->artist = NULL ;
+   peyote->tab->song = NULL ;
+   peyote->tab->album = NULL ;
+
    if (strcmp(path, "NOFILE"))
       peyote_tab_read_file(path) ;
    return 0 ;
@@ -43,18 +48,35 @@ int peyote_tab_read_file(char *filepath)
    char *content ;
    if (!g_file_get_contents(filepath, &content, NULL, NULL))
       fprintf (stderr, "Peyote ERROR: Could not get content of file %s\n", filepath) ;
-
+   peyote->filepath = g_strdup(filepath) ;
    peyote->tab->artist = peyote_tab_get_metadata_value_from_key(content, "Artist") ;
    peyote->tab->song = peyote_tab_get_metadata_value_from_key(content, "Song") ;
    peyote->tab->album = peyote_tab_get_metadata_value_from_key(content, "Album") ;
-   peyote->tab->tabs = peyote_tab_get_tab(content) ;
+   peyote->tab->tabs = peyote_tab_get_tabs(content) ;
    peyote_window_set_window_title(g_strdup_printf("Peyote - %s by %s", peyote->tab->song, peyote->tab->artist)) ;
    gtk_text_buffer_set_text(peyote->tab->tab_text, peyote->tab->tabs, -1) ;
    g_free(content) ;
    return 0 ;
 }
 
-char *peyote_tab_get_tab(char *content)
+void peyote_tab_save_file(char *filepath)
+{
+   g_file_set_contents(filepath, peyote_tab_make_file_content(), -1, NULL) ;
+   return ;
+}
+
+char *peyote_tab_make_file_content()
+{
+   GtkTextIter start, end ;
+
+   gtk_text_buffer_get_bounds(peyote->tab->tab_text, &start, &end) ;
+
+   return g_strdup_printf("[metadata]\nArtist=%s\nSong=%s\nAlbum=%s\n[tabs]\n%s",
+                          peyote->tab->artist, peyote->tab->song, peyote->tab->album,
+                          gtk_text_buffer_get_text(peyote->tab->tab_text, &start, &end, FALSE)) ;
+}
+
+char *peyote_tab_get_tabs(char *content)
 {
    char *p ;
    p = g_strrstr(content, "[tabs]") ;

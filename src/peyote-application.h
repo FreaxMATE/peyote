@@ -24,12 +24,14 @@
 #include "peyote-window.h"
 #include "peyote-menu.h"
 #include "peyote-tab.h"
+#include "peyote-dialog.h"
 
 extern PeyoteApplication *peyote ;
 
 PeyoteApplication *peyote_application_new(void) ;
 int peyote_application_initialize(int argc, char **argv) ;
 int peyote_application_run(int argc, char **argv) ;
+gboolean peyote_application_is_new_document(void) ;
 
 #endif /* _peyote_application_h_ */
 

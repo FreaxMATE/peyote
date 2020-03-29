@@ -46,3 +46,37 @@ char *peyote_filechooser_open_file()
    return NULL ;
 }
 
+void peyote_filechooser_save_file()
+{
+   GtkWidget *dialog ;
+   GtkFileChooser *chooser ;
+   gint res ;
+
+   dialog = gtk_file_chooser_dialog_new ("Save File",
+                                         peyote->window->window,
+                                         GTK_FILE_CHOOSER_ACTION_SAVE,
+                                         "Cancel",
+                                         GTK_RESPONSE_CANCEL,
+                                         "Save",
+                                         GTK_RESPONSE_ACCEPT,
+                                         NULL) ;
+   chooser = GTK_FILE_CHOOSER(dialog) ;
+   gtk_file_chooser_set_do_overwrite_confirmation(chooser, TRUE) ;
+
+   if (peyote_application_is_new_document())
+      gtk_file_chooser_set_current_name(chooser, "Untitled document");
+   else
+      gtk_file_chooser_set_filename(chooser, peyote->filepath) ;
+
+   res = gtk_dialog_run(GTK_DIALOG(dialog)) ;
+   if (res == GTK_RESPONSE_ACCEPT)
+   {
+      char *filename ;
+      filename = gtk_file_chooser_get_filename(chooser) ;
+      peyote_tab_save_file(filename) ;
+      g_free (filename) ;
+   }
+   gtk_widget_destroy(dialog) ;
+   return ;
+}
+

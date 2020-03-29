@@ -32,7 +32,6 @@ int peyote_menu_initialize()
      gtk_builder_get_object(peyote->window->builder, "peyote_menu_open")) ;
    peyote->menu->peyote_menu_quit = GTK_IMAGE_MENU_ITEM(
      gtk_builder_get_object(peyote->window->builder, "peyote_menu_quit")) ;
-
    return 0 ;
 }
 
@@ -42,29 +41,40 @@ int peyote_menu_initialize()
 void on_peyote_menu_open_activate()
 {
    char *filepath ;
-
    if ((filepath = peyote_filechooser_open_file()) != NULL)
    {
       peyote_tab_read_file(filepath) ;
       return ;
    }
-   fprintf (stderr, "PEYOTE WARNING: filechooser returned filepath: NULL\n") ;
+   fprintf (stderr, "PEYOTE WARNING: filechooser returned NULL\n") ;
+   return ;
+}
+
+void on_peyote_menu_save_activate()
+{
+   if (peyote->tab->artist == NULL || peyote->tab->song == NULL || peyote->tab->album == NULL)
+   {
+      peyote_dialog_run() ;
+   }
+   peyote_filechooser_save_file() ;
+   return ;
 }
 
 void on_peyote_menu_make_pdf_activate()
 {
    peyote_tab_make_pdf() ;
+   return ;
 }
 
 void on_peyote_menu_about_dialog_activate()
 {
    gtk_dialog_run(GTK_DIALOG(peyote->window->about_dialog)) ;
+   return ;
 }
 
 void on_peyote_menu_quit_activate()
 {
    gtk_main_quit() ;
+   return ;
 }
-
-
 

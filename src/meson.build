@@ -5,6 +5,7 @@ sources = [
   'peyote-filechooser.c',
   'peyote-menu.c',
   'peyote-tab.c',
+  'peyote-dialog.c',
 ]
 
 add_project_arguments('-rdynamic', '-Wl,--export-dynamic', language : 'c')

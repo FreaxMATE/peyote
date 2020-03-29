@@ -26,6 +26,7 @@
 #include "peyote-application.h"
 
 char *peyote_filechooser_open_file(void) ;
+void peyote_filechooser_save_file(void) ;
 
 #endif /* _peyote_filechooser_h_ */
 

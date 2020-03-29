@@ -27,12 +27,15 @@ typedef struct _PeyoteApplication PeyoteApplication ;
 typedef struct _PeyoteWindow PeyoteWindow ;
 typedef struct _PeyoteTab PeyoteTab ;
 typedef struct _PeyoteMenu PeyoteMenu ;
+typedef struct _PeyoteDialog PeyoteDialog ;
 
 typedef struct _PeyoteApplication
 {
    PeyoteWindow *window ;
    PeyoteMenu   *menu ;
    PeyoteTab    *tab ;
+   PeyoteDialog *dialog ;
+   char *filepath ;
 
 } PeyoteApplication ;
 
@@ -41,6 +44,7 @@ typedef struct _PeyoteWindow
    GtkBuilder *builder ;
    GtkWindow  *window ;
    GtkAboutDialog *about_dialog ;
+   GtkBox *main_box ;
 
 } PeyoteWindow ;
 
@@ -58,6 +62,14 @@ typedef struct _PeyoteMenu
 
 } PeyoteMenu ;
 
+typedef struct _PeyoteDialog
+{
+   GtkDialog *dialog ;
+   GtkButton *cancel, *apply ;
+   GtkEntry *artist_entry, *song_entry, *album_entry ;
+   char *artist, *song, *album ;
+
+} PeyoteDialog ;
 
 #endif /* _peyote_h_ */
 
