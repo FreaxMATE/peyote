@@ -1,6 +1,7 @@
 # Peyote
 a guitar tab creator
 
+![Peyote](data/org.github.FreaxMATE.peyote.png)
 ### Install from source
 ```bash
 git clone https://github.com/FreaxMATE/peyote
