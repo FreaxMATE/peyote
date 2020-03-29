@@ -1,5 +1,5 @@
 # Peyote
-a guitar tab creator
+is an open source guitar tab creator for Linux.
 
 ![Peyote](data/org.github.FreaxMATE.peyote.png)
 ### Install from source
@@ -30,7 +30,7 @@ E|----------0-------------3-------|
 
 ## License
 
-Copyright 2019 FreaxMATE
+Copyright 2020 FreaxMATE
 
 Licensed under the terms of the GPLv3 license: https://www.gnu.org/licenses/gpl-3.0.html
 
