@@ -56,6 +56,11 @@ void on_peyote_menu_make_pdf_activate()
    peyote_tab_make_pdf() ;
 }
 
+void on_peyote_menu_about_dialog_activate()
+{
+   gtk_dialog_run(GTK_DIALOG(peyote->window->about_dialog)) ;
+}
+
 void on_peyote_menu_quit_activate()
 {
    gtk_main_quit() ;

@@ -38,6 +38,8 @@ int peyote_window_initialize()
    gtk_builder_connect_signals(peyote->window->builder, NULL) ;
    peyote->window->window = GTK_WINDOW(gtk_builder_get_object(
      peyote->window->builder, "peyote_window")) ;
+   peyote->window->about_dialog = GTK_ABOUT_DIALOG(gtk_builder_get_object(
+     peyote->window->builder, "peyote_about_dialog")) ;
    gtk_widget_show(GTK_WIDGET(peyote->window->window)) ;
    gtk_window_set_title(peyote->window->window, "Peyote - Guitar Tab Editor") ;
    return 0 ;
@@ -55,6 +57,12 @@ void peyote_window_set_window_title(char *title)
 void on_peyote_window_destroy()
 {
    gtk_main_quit() ;
+   return ;
+}
+
+void on_peyote_about_dialog_response()
+{
+   gtk_widget_hide(GTK_WIDGET(peyote->window->about_dialog)) ;
    return ;
 }
 

@@ -40,6 +40,7 @@ typedef struct _PeyoteWindow
 {
    GtkBuilder *builder ;
    GtkWindow  *window ;
+   GtkAboutDialog *about_dialog ;
 
 } PeyoteWindow ;
 
