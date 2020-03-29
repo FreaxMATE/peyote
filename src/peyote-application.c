@@ -30,13 +30,14 @@ int peyote_application_initialize(int argc, char **argv)
 {
    gtk_init (&argc, &argv) ;
 
-   peyote->peyote_window = peyote_window_new() ;
+   peyote->window = peyote_window_new() ;
    peyote_window_initialize() ;
-   peyote->peyote_menu = peyote_menu_new() ;
+   peyote->menu = peyote_menu_new() ;
    peyote_menu_initialize() ;
-
-   peyote->peyote_tab = peyote_tab_new() ;
-   peyote_tab_initialize() ;
+   peyote->tab = peyote_tab_new() ;
+   if (argc > 2)
+      return 1 ;
+   argc == 2 ?  peyote_tab_initialize(argv[1]) : peyote_tab_initialize("NOFILE") ;
    return 0 ;
 }
 
@@ -45,5 +46,4 @@ int peyote_application_run(int argc, char **argv)
    gtk_main() ;
    return 0 ;
 }
-
 

@@ -28,10 +28,10 @@ PeyoteMenu *peyote_menu_new()
 
 int peyote_menu_initialize()
 {
-   peyote->peyote_menu->peyote_menu_open = GTK_IMAGE_MENU_ITEM(
-     gtk_builder_get_object(peyote->peyote_window->builder, "peyote_menu_open")) ;
-   peyote->peyote_menu->peyote_menu_quit = GTK_IMAGE_MENU_ITEM(
-     gtk_builder_get_object(peyote->peyote_window->builder, "peyote_menu_quit")) ;
+   peyote->menu->peyote_menu_open = GTK_IMAGE_MENU_ITEM(
+     gtk_builder_get_object(peyote->window->builder, "peyote_menu_open")) ;
+   peyote->menu->peyote_menu_quit = GTK_IMAGE_MENU_ITEM(
+     gtk_builder_get_object(peyote->window->builder, "peyote_menu_quit")) ;
 
    return 0 ;
 }
@@ -49,6 +49,11 @@ void on_peyote_menu_open_activate()
       return ;
    }
    fprintf (stderr, "PEYOTE WARNING: filechooser returned filepath: NULL\n") ;
+}
+
+void on_peyote_menu_make_pdf_activate()
+{
+   peyote_tab_make_pdf() ;
 }
 
 void on_peyote_menu_quit_activate()

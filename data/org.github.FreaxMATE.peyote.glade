@@ -26,7 +26,7 @@ Author: FreaxMATE
   <!-- interface-license-type gplv3 -->
   <!-- interface-name Peyote -->
   <!-- interface-authors FreaxMATE -->
-  <object class="GtkTextBuffer" id="peyote_text_buffer"/>
+  <object class="GtkTextBuffer" id="peyote_tab_text"/>
   <object class="GtkWindow" id="peyote_window">
     <property name="can_focus">False</property>
     <property name="default_width">640</property>
@@ -89,12 +89,13 @@ Author: FreaxMATE
                           </object>
                         </child>
                         <child>
-                          <object class="GtkImageMenuItem">
-                            <property name="label">gtk-save-as</property>
+                          <object class="GtkImageMenuItem" id="peyote_menu_make_pdf">
+                            <property name="label">gtk-print</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
+                            <signal name="activate" handler="on_peyote_menu_make_pdf_activate" swapped="no"/>
                           </object>
                         </child>
                         <child>
@@ -215,28 +216,6 @@ Author: FreaxMATE
         </child>
         <child>
           <object class="GtkBox">
-            <property name="can_focus">False</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkDrawingArea" id="peyote_drawing_area">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
@@ -246,10 +225,11 @@ Author: FreaxMATE
                 <property name="can_focus">True</property>
                 <property name="shadow_type">in</property>
                 <child>
-                  <object class="GtkTextView" id="peyote_text_view">
+                  <object class="GtkTextView" id="peyote_tabview">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="buffer">peyote_text_buffer</property>
+                    <property name="buffer">peyote_tab_text</property>
+                    <property name="monospace">True</property>
                   </object>
                 </child>
               </object>

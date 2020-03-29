@@ -24,7 +24,8 @@ PeyoteApplication *peyote ;
 int main (int argc, char **argv)
 {
    peyote = peyote_application_new() ;
-   peyote_application_initialize(argc, argv) ;
+   if (peyote_application_initialize(argc, argv) == 1)
+      return 1 ;
    return peyote_application_run(argc, argv) ;
 }
 

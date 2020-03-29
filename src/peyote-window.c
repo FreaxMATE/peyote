@@ -29,22 +29,32 @@ PeyoteWindow *peyote_window_new()
 int peyote_window_initialize()
 {
    if (!access("/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade", F_OK))
-      peyote->peyote_window->builder = gtk_builder_new_from_file(
+      peyote->window->builder = gtk_builder_new_from_file(
         "/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade") ;
    else
-      peyote->peyote_window->builder = gtk_builder_new_from_file(
+      peyote->window->builder = gtk_builder_new_from_file(
         "../data/org.github.FreaxMATE.peyote.glade") ;
 
-   gtk_builder_connect_signals(peyote->peyote_window->builder, NULL) ;
-   peyote->peyote_window->window = GTK_WINDOW(gtk_builder_get_object(
-     peyote->peyote_window->builder, "peyote_window")) ;
-   gtk_widget_show(GTK_WIDGET(peyote->peyote_window->window)) ;
-
+   gtk_builder_connect_signals(peyote->window->builder, NULL) ;
+   peyote->window->window = GTK_WINDOW(gtk_builder_get_object(
+     peyote->window->builder, "peyote_window")) ;
+   gtk_widget_show(GTK_WIDGET(peyote->window->window)) ;
+   gtk_window_set_title(peyote->window->window, "Peyote - Guitar Tab Editor") ;
    return 0 ;
 }
+
+void peyote_window_set_window_title(char *title)
+{
+   gtk_window_set_title(peyote->window->window, title) ;
+   g_free(title) ;
+   return ;
+}
+
+/* Callbacks */
 
 void on_peyote_window_destroy()
 {
    gtk_main_quit() ;
+   return ;
 }
 

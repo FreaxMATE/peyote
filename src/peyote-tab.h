@@ -26,8 +26,9 @@
 #include "peyote-application.h"
 
 PeyoteTab *peyote_tab_new(void) ;
-int peyote_tab_initialize(void) ;
+int peyote_tab_initialize(char *path) ;
 int peyote_tab_read_file(char *filepath) ;
+void peyote_tab_make_pdf(void) ;
 
 #endif /* _peyote_tab_h_ */
 

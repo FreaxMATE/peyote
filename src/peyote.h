@@ -30,9 +30,9 @@ typedef struct _PeyoteMenu PeyoteMenu ;
 
 typedef struct _PeyoteApplication
 {
-   PeyoteWindow *peyote_window ;
-   PeyoteMenu   *peyote_menu ;
-   PeyoteTab    *peyote_tab ;
+   PeyoteWindow *window ;
+   PeyoteMenu   *menu ;
+   PeyoteTab    *tab ;
 
 } PeyoteApplication ;
 
@@ -45,10 +45,8 @@ typedef struct _PeyoteWindow
 
 typedef struct _PeyoteTab
 {
-   GtkTextBuffer *text_buffer ;
-   GtkTextIter   *start, *end ;
-   FILE *file ;
-   char *content ;
+   GtkTextBuffer *tab_text ;
+   char *tabs, *artist, *song, *album ;
 
 } PeyoteTab ;
 
