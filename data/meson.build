@@ -14,14 +14,10 @@ install_data([
   'org.github.FreaxMATE.peyote.desktop',
 ], install_dir: desktopdir)
 
-svgicondir = join_paths(get_option('datadir'), 'icons/hicolor/scalable/apps')
-install_data([
-  'org.github.FreaxMATE.peyote.svg',
-],  install_dir: svgicondir)
-
 gladedir = join_paths(get_option('datadir'), 'peyote/')
 install_data([
   'org.github.FreaxMATE.peyote.glade',
 ],  install_dir: gladedir)
 
+subdir('icons')
 
