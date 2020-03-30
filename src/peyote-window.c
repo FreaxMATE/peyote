@@ -28,7 +28,10 @@ PeyoteWindow *peyote_window_new()
 
 int peyote_window_initialize()
 {
-   if (!access("/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade", F_OK))
+   if (!access("/usr/share/peyote/org.github.FreaxMATE.peyote.glade", F_OK))
+      peyote->window->builder = gtk_builder_new_from_file(
+        "/usr/share/peyote/org.github.FreaxMATE.peyote.glade") ;
+   else if (!access("/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade", F_OK))
       peyote->window->builder = gtk_builder_new_from_file(
         "/usr/local/share/peyote/org.github.FreaxMATE.peyote.glade") ;
    else
