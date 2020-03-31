@@ -1,5 +1,5 @@
 project('peyote', 'c',
-  version: '0.0.1rc3',
+  version: '0.0.1rc4',
   meson_version: '>= 0.40.0',
 )
 
