@@ -1,13 +1,18 @@
 [Desktop Entry]
-Version=1.0
+Name[en_GB]=Peyote
 Name=Peyote
-GenericName=Guitar tab editor
-Comment=create guitar tabs
-Icon=org.github.FreaxMATE.peyote
-Exec=peyote %F
+GenericName[en_GB]=Guitar tabs creator
+GenericName=Guitar tabs creator
+Comment[en_GB]=Create guitar tabs
+Comment=Create guitar tabs
+Exec=peyote %f
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=GTK;GNOME;Graphics;
+MimeType=text/plain;
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+Icon=/home/kunruh/src/peyote/data/icons/hicolor/scalable/apps/org.github.FreaxMATE.peyote.svg
+Categories=AudioVideo;Audio;Graphics;GNOME;GTK;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=guitar;tabs;peyote;editor;
 
-Name[en_GB]=Peyote

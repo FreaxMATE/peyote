@@ -12,7 +12,7 @@ depends=('gtk3' 'glib2')
 makedepends=('git' 'meson' 'ninja')
 optdepends=()
 source=("$pkgname.tar.gz::https://github.com/FreaxMATE/$pkgname/archive/v$pkgver.tar.gz")
-sha512sums=('81117512bb8d9fb68fc0aa82cb99a9b5aab64e22732f02f1cd73971fa9c30a12d5df3018971507491537a693653266c924cb735e0aa6d42442ad2bdae713ac46')
+sha512sums=('26cc5282c5591a183df992706ac7cf87100cc3c1ff73d28ebf4f77fba1d0b37c55f486a19e7c58e5017fecd410eb67086f6046811098039dc133d178ca318b85')
 
 build() {
 	cd "$pkgname-$pkgver"
