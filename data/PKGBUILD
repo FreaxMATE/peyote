@@ -2,7 +2,7 @@
 # Contributor: Wilbur Wetterquarz <freaxmate@protonmail.com>
 
 pkgname=peyote
-pkgver=0.0.1rc3
+pkgver=0.0.1rc4
 pkgrel=1
 pkgdesc="an open source guitar tab creator"
 arch=('any')
@@ -12,7 +12,7 @@ depends=('gtk3' 'glib2')
 makedepends=('git' 'meson' 'ninja')
 optdepends=()
 source=("$pkgname.tar.gz::https://github.com/FreaxMATE/$pkgname/archive/v$pkgver.tar.gz")
-sha512sums=('26cc5282c5591a183df992706ac7cf87100cc3c1ff73d28ebf4f77fba1d0b37c55f486a19e7c58e5017fecd410eb67086f6046811098039dc133d178ca318b85')
+sha512sums=('30287f0500a12a29cabea766d0ccf756c6f16aba258e5c107336e83bfa9b6c3973b9c1598f33775db314cfa04fc1bece7adc419daf71d411aae312e32f80a5a4')
 
 build() {
 	cd "$pkgname-$pkgver"
