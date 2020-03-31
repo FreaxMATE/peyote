@@ -1,7 +1,7 @@
 # Peyote
 is an open source guitar tab creator for Linux.
 
-![Peyote](data/org.github.FreaxMATE.peyote.png)
+![Peyote](data/icons/hicolor/scalable/apps/org.github.FreaxMATE.peyote.svg)
 ### Install from source
 ```bash
 git clone https://github.com/FreaxMATE/peyote
