@@ -104,8 +104,3 @@ char *peyote_tab_get_metadata_value_from_key(char *content, char *key)
    return g_strndup(startp, n*sizeof(char)) ;
 }
 
-void peyote_tab_make_pdf()
-{
-   return ;
-}
-

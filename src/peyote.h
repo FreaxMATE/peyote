@@ -23,7 +23,11 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
+#include <cairo.h>
+#include <cairo-pdf.h>
+
 typedef struct _PeyoteApplication PeyoteApplication ;
+typedef struct _PeyoteRender PeyoteRender ;
 typedef struct _PeyoteWindow PeyoteWindow ;
 typedef struct _PeyoteTab PeyoteTab ;
 typedef struct _PeyoteMenu PeyoteMenu ;
@@ -32,12 +36,20 @@ typedef struct _PeyoteDialog PeyoteDialog ;
 typedef struct _PeyoteApplication
 {
    PeyoteWindow *window ;
+   PeyoteRender *render ;
    PeyoteMenu   *menu ;
    PeyoteTab    *tab ;
    PeyoteDialog *dialog ;
    char *filepath ;
 
 } PeyoteApplication ;
+
+typedef struct _PeyoteRender
+{
+   cairo_surface_t *surface ;
+   cairo_t *cr ;
+
+} PeyoteRender ;
 
 typedef struct _PeyoteWindow
 {

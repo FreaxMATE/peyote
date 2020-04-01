@@ -62,7 +62,7 @@ void on_peyote_menu_save_activate()
 
 void on_peyote_menu_make_pdf_activate()
 {
-   peyote_tab_make_pdf() ;
+   peyote_render_make_pdf() ;
    return ;
 }
 

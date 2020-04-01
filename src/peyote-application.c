@@ -32,6 +32,8 @@ int peyote_application_initialize(int argc, char **argv)
 
    peyote->window = peyote_window_new() ;
    peyote_window_initialize() ;
+   peyote->render = peyote_render_new() ;
+   peyote_render_initialize() ;
    peyote->menu = peyote_menu_new() ;
    peyote_menu_initialize() ;
    peyote->dialog = peyote_dialog_new() ;

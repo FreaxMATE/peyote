@@ -17,17 +17,17 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_menu_
-#define _peyote_menu_
+#ifndef _peyote_render_h_
+#define _peyote_render_h_
+
+#include <gtk/gtk.h>
 
 #include "peyote.h"
 #include "peyote-application.h"
-#include "peyote-filechooser.h"
-#include "peyote-tab.h"
-#include "peyote-render.h"
 
-PeyoteMenu *peyote_menu_new(void) ;
-int peyote_menu_initialize(void) ;
+PeyoteRender *peyote_render_new(void) ;
+int peyote_render_initialize(void) ;
+int peyote_render_make_pdf(void) ;
 
-#endif /* _peyote_menu_ */
+#endif /* _peyote_render_h_ */
 
