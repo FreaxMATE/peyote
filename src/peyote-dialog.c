@@ -38,13 +38,14 @@ void peyote_dialog_initialize()
    return ;
 }
 
-gboolean peyote_dialog_run()
+void peyote_dialog_run()
 {
    gtk_dialog_run(peyote->dialog->dialog) ;
-   peyote->tab->artist = peyote->dialog->artist ;
-   peyote->tab->song = peyote->dialog->song ;
-   peyote->tab->album = peyote->dialog->album ;
+   peyote->parser->artist = peyote->dialog->artist ;
+   peyote->parser->song = peyote->dialog->song ;
+   peyote->parser->album = peyote->dialog->album ;
    gtk_widget_destroy(GTK_WIDGET(peyote->dialog->dialog)) ;
+   return ;
 }
 
 void on_peyote_dialog_apply_clicked()

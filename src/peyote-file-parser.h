@@ -17,8 +17,8 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_tab_h_
-#define _peyote_tab_h_
+#ifndef _peyote_file_parser_h_
+#define _peyote_file_parser_h_
 
 #include <gtk/gtk.h>
 
@@ -26,11 +26,10 @@
 #include "peyote-application.h"
 #include "peyote-dialog.h"
 
-PeyoteTab *peyote_tab_new(void) ;
-int peyote_tab_initialize(char *path) ;
-int peyote_tab_read_file(char *filepath) ;
-void peyote_tab_save_file(char *filepath) ;
-void peyote_tab_make_pdf(void) ;
+PeyoteFileParser *peyote_file_parser_new(void) ;
+int peyote_file_parser_initialize(char *path) ;
+int peyote_file_parser_read_file(char *filepath) ;
+void peyote_file_parser_save_file(char *filepath) ;
 
-#endif /* _peyote_tab_h_ */
+#endif /* _peyote_file_parser_h_ */
 

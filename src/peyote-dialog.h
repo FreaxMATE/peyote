@@ -27,7 +27,7 @@
 
 PeyoteDialog *peyote_dialog_new(void) ;
 void peyote_dialog_initialize(void) ;
-gboolean peyote_dialog_run(void) ;
+void peyote_dialog_run(void) ;
 
 #endif /* _peyote_dialog_h_ */
 

@@ -17,23 +17,15 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_application_h_
-#define _peyote_application_h_
+#ifndef _peyote_tabs_
+#define _peyote_tabs_
 
 #include "peyote.h"
-#include "peyote-window.h"
-#include "peyote-menu.h"
-#include "peyote-file-parser.h"
-#include "peyote-render.h"
-#include "peyote-tabs.h"
-#include "peyote-dialog.h"
+#include "peyote-application.h"
 
-extern PeyoteApplication *peyote ;
+PeyoteTabs *peyote_tabs_new(void) ;
+int peyote_tabs_initialize(void) ;
+void peyote_tabs_load_tabs(void) ;
 
-PeyoteApplication *peyote_application_new(void) ;
-int peyote_application_initialize(int argc, char **argv) ;
-int peyote_application_run(int argc, char **argv) ;
-gboolean peyote_application_is_new_document(void) ;
-
-#endif /* _peyote_application_h_ */
+#endif /* _peyote_tabs_ */
 

@@ -17,23 +17,21 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_application_h_
-#define _peyote_application_h_
+#ifndef _peyote_render_h_
+#define _peyote_render_h_
+
+#include <gtk/gtk.h>
+#include <cairo.h>
+#include <cairo-pdf.h>
+#include <cairo-svg.h>
 
 #include "peyote.h"
-#include "peyote-window.h"
-#include "peyote-menu.h"
-#include "peyote-file-parser.h"
-#include "peyote-render.h"
+#include "peyote-application.h"
 #include "peyote-tabs.h"
-#include "peyote-dialog.h"
 
-extern PeyoteApplication *peyote ;
+PeyoteRender *peyote_render_new(void) ;
+int peyote_render_initialize(void) ;
+int peyote_render_make_pdf(void) ;
 
-PeyoteApplication *peyote_application_new(void) ;
-int peyote_application_initialize(int argc, char **argv) ;
-int peyote_application_run(int argc, char **argv) ;
-gboolean peyote_application_is_new_document(void) ;
-
-#endif /* _peyote_application_h_ */
+#endif /* _peyote_render_h_ */
 
