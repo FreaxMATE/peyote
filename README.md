@@ -2,6 +2,14 @@
 is an open source guitar tab creator for Linux.
 
 ![Peyote](data/icons/hicolor/scalable/apps/org.github.FreaxMATE.peyote.svg)
+
+## Installation
+### Dependencies
+ - gcc
+ - meson
+ - pkg-config
+ - gtk3
+
 ### Install from source
 ```bash
 git clone https://github.com/FreaxMATE/peyote
