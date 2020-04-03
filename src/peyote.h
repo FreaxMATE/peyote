@@ -23,23 +23,22 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
-#include <cairo.h>
-#include <cairo-pdf.h>
-
 typedef struct _PeyoteApplication PeyoteApplication ;
 typedef struct _PeyoteRender PeyoteRender ;
 typedef struct _PeyoteWindow PeyoteWindow ;
-typedef struct _PeyoteTab PeyoteTab ;
+typedef struct _PeyoteFileParser PeyoteFileParser ;
+typedef struct _PeyoteTabs PeyoteTabs ;
 typedef struct _PeyoteMenu PeyoteMenu ;
 typedef struct _PeyoteDialog PeyoteDialog ;
 
 typedef struct _PeyoteApplication
 {
-   PeyoteWindow *window ;
-   PeyoteRender *render ;
-   PeyoteMenu   *menu ;
-   PeyoteTab    *tab ;
-   PeyoteDialog *dialog ;
+   PeyoteWindow     *window ;
+   PeyoteRender     *render ;
+   PeyoteMenu       *menu ;
+   PeyoteFileParser *parser ;
+   PeyoteDialog     *dialog ;
+   PeyoteTabs       *tabs ;
    char *filepath ;
 
 } PeyoteApplication ;
@@ -60,12 +59,20 @@ typedef struct _PeyoteWindow
 
 } PeyoteWindow ;
 
-typedef struct _PeyoteTab
+typedef struct _PeyoteFileParser
 {
    GtkTextBuffer *tab_text ;
    char *tabs, *artist, *song, *album ;
 
-} PeyoteTab ;
+} PeyoteFileParser ;
+
+typedef struct _PeyoteTabs
+{
+   char *tuning ;
+   char **tabs ;
+   int nlinelen, nlines ;
+
+} PeyoteTabs ;
 
 typedef struct _PeyoteMenu
 {

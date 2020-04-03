@@ -23,7 +23,7 @@
 #include "peyote.h"
 #include "peyote-application.h"
 #include "peyote-filechooser.h"
-#include "peyote-tab.h"
+#include "peyote-file-parser.h"
 #include "peyote-render.h"
 
 PeyoteMenu *peyote_menu_new(void) ;

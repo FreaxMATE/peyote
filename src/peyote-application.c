@@ -38,11 +38,13 @@ int peyote_application_initialize(int argc, char **argv)
    peyote_menu_initialize() ;
    peyote->dialog = peyote_dialog_new() ;
    peyote_dialog_initialize() ;
-   peyote->tab = peyote_tab_new() ;
+   peyote->tabs = peyote_tabs_new() ;
+   peyote_tabs_initialize() ;
    peyote->filepath = NULL ;
+   peyote->parser = peyote_file_parser_new() ;
    if (argc > 2)
       return 1 ;
-   argc == 2 ?  peyote_tab_initialize(argv[1]) : peyote_tab_initialize("NOFILE") ;
+   argc == 2 ?  peyote_file_parser_initialize(argv[1]) : peyote_file_parser_initialize("NOFILE") ;
    return 0 ;
 }
 

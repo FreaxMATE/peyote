@@ -43,16 +43,16 @@ void on_peyote_menu_open_activate()
    char *filepath ;
    if ((filepath = peyote_filechooser_open_file()) != NULL)
    {
-      peyote_tab_read_file(filepath) ;
+      peyote_file_parser_read_file(filepath) ;
       return ;
    }
-   fprintf (stderr, "PEYOTE WARNING: filechooser returned NULL\n") ;
+   fprintf (stderr, "Peyote ERROR: filechooser returned NULL\n") ;
    return ;
 }
 
 void on_peyote_menu_save_activate()
 {
-   if (peyote->tab->artist == NULL || peyote->tab->song == NULL || peyote->tab->album == NULL)
+   if (peyote->parser->artist == NULL || peyote->parser->song == NULL || peyote->parser->album == NULL)
    {
       peyote_dialog_run() ;
    }

@@ -21,9 +21,13 @@
 #define _peyote_render_h_
 
 #include <gtk/gtk.h>
+#include <cairo.h>
+#include <cairo-pdf.h>
+#include <cairo-svg.h>
 
 #include "peyote.h"
 #include "peyote-application.h"
+#include "peyote-tabs.h"
 
 PeyoteRender *peyote_render_new(void) ;
 int peyote_render_initialize(void) ;
