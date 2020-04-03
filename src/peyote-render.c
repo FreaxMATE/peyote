@@ -90,14 +90,13 @@ int peyote_render_make_pdf()
    int line = 0 ;
    int x_vec = 0 ;
    int x_pos = left_end ;
-//printf ("nlines: %d\n", peyote->tabs->nlines) ;
-//printf ("nlinelen: %d\n", peyote->tabs->nlinelen) ;
+
    while (paragraph < n_paragraphs) // number of paragraph lines
    {
-      printf ("paragraph: %d\n", paragraph) ;
+//      printf ("paragraph: %d\n", paragraph) ;
       while (line < peyote->tabs->nlines) // six lines representing the strings
       {
-         printf ("line: %d\n", line) ;
+//         printf ("line: %d\n", line) ;
          if (!next_paragraph)
          {
             x_vec = 0 ;
@@ -110,7 +109,7 @@ int peyote_render_make_pdf()
          }
          while (x_vec < peyote->tabs->nlinelen) // x direction from left to right
          {
-            printf ("x: %d, xpos: %d, y_tabs: %.0f\n", x_vec, x_pos, y_tabs) ;
+//            printf ("x: %d, xpos: %d, y_tabs: %.0f\n", x_vec, x_pos, y_tabs) ;
             if (x_pos >= right_end) // current x position exceeds right end
             {
                printf ("BREAK\n") ;

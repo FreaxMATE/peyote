@@ -48,7 +48,7 @@ void peyote_tabs_load_tabs()
 
    /*  parse tabs to two-dimensional matrix */
    peyote->tabs->tabs = calloc (peyote->tabs->nlines, sizeof(char *)) ;
-   for (i = 0; i < peyote->tabs->nlinelen; ++i)
+   for (i = 0; i < peyote->tabs->nlines; ++i)
       peyote->tabs->tabs[i] = calloc (peyote->tabs->nlinelen, sizeof(char)) ;
    k = 0 ;
    for (j = 0; j < peyote->tabs->nlines; ++j)

@@ -93,13 +93,16 @@ char *peyote_file_parser_get_tabs(char *content)
 
 char *peyote_file_parser_get_metadata_value_from_key(char *content, char *key)
 {
+   char *search_string ;
    char *p ;
-   p = g_strrstr(content, g_strjoin(NULL, key, "=", NULL)) ;
+   search_string = g_strjoin(NULL, key, "=", NULL) ;
+   p = g_strrstr(content, search_string) ;
    p = &p[(strlen(key)+1)*sizeof(char)] ;
    char *startp = p ;
    int n = 0 ;
    while (p[n] != '\n' && p[n] != 0)
       ++n ;
+   g_free(search_string) ;
    return g_strndup(startp, n*sizeof(char)) ;
 }
 
