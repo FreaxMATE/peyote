@@ -43,7 +43,7 @@ void on_peyote_menu_open_activate()
    char *filepath ;
    if ((filepath = peyote_filechooser_open_file()) != NULL)
    {
-      peyote_file_parser_read_file(filepath) ;
+      peyote_files_add_file(filepath) ;
       return ;
    }
    fprintf (stderr, "Peyote ERROR: filechooser returned NULL\n") ;
@@ -52,7 +52,8 @@ void on_peyote_menu_open_activate()
 
 void on_peyote_menu_save_activate()
 {
-   if (peyote->parser->artist == NULL || peyote->parser->song == NULL || peyote->parser->album == NULL)
+   if (peyote->files->current->parser->artist == NULL || peyote->files->current->parser->song == NULL
+       || peyote->files->current->parser->album == NULL)
    {
       peyote_dialog_run() ;
    }
@@ -74,7 +75,7 @@ void on_peyote_menu_about_dialog_activate()
 
 void on_peyote_menu_quit_activate()
 {
-   gtk_main_quit() ;
+   peyote_window_quit() ;
    return ;
 }
 

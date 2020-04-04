@@ -32,6 +32,8 @@ int peyote_application_initialize(int argc, char **argv)
 
    peyote->window = peyote_window_new() ;
    peyote_window_initialize() ;
+   peyote->files = peyote_files_new() ;
+   peyote_files_initialize() ;
    peyote->render = peyote_render_new() ;
    peyote_render_initialize() ;
    peyote->menu = peyote_menu_new() ;
@@ -40,11 +42,10 @@ int peyote_application_initialize(int argc, char **argv)
    peyote_dialog_initialize() ;
    peyote->tabs = peyote_tabs_new() ;
    peyote_tabs_initialize() ;
-   peyote->filepath = NULL ;
-   peyote->parser = peyote_file_parser_new() ;
    if (argc > 2)
       return 1 ;
-   argc == 2 ?  peyote_file_parser_initialize(argv[1]) : peyote_file_parser_initialize("NOFILE") ;
+   else if (argc == 2)
+      peyote_files_add_file(argc) ;
    return 0 ;
 }
 
@@ -56,6 +57,6 @@ int peyote_application_run(int argc, char **argv)
 
 gboolean peyote_application_is_new_document()
 {
-   return peyote->filepath == NULL ? TRUE : FALSE ;
+   return !g_strcmp0(peyote->files->current->path, "NOFILE") ? TRUE : FALSE ;
 }
 

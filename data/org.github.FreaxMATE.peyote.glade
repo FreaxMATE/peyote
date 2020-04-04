@@ -233,7 +233,6 @@ Author: FreaxMATE
       </object>
     </child>
   </object>
-  <object class="GtkTextBuffer" id="peyote_tab_text"/>
   <object class="GtkWindow" id="peyote_window">
     <property name="can_focus">False</property>
     <property name="default_width">640</property>
@@ -362,18 +361,9 @@ Author: FreaxMATE
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkScrolledWindow">
+              <object class="GtkNotebook" id="peyote_notebook">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="shadow_type">in</property>
-                <child>
-                  <object class="GtkTextView" id="peyote_tabview">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="buffer">peyote_tab_text</property>
-                    <property name="monospace">True</property>
-                  </object>
-                </child>
               </object>
               <packing>
                 <property name="expand">True</property>

@@ -24,6 +24,8 @@
 #include <glib.h>
 
 typedef struct _PeyoteApplication PeyoteApplication ;
+typedef struct _PeyoteFiles PeyoteFiles ;
+typedef struct _PeyoteFile PeyoteFile ;
 typedef struct _PeyoteRender PeyoteRender ;
 typedef struct _PeyoteWindow PeyoteWindow ;
 typedef struct _PeyoteFileParser PeyoteFileParser ;
@@ -31,17 +33,37 @@ typedef struct _PeyoteTabs PeyoteTabs ;
 typedef struct _PeyoteMenu PeyoteMenu ;
 typedef struct _PeyoteDialog PeyoteDialog ;
 
+
 typedef struct _PeyoteApplication
 {
    PeyoteWindow     *window ;
+   PeyoteFiles      *files ;
    PeyoteRender     *render ;
    PeyoteMenu       *menu ;
-   PeyoteFileParser *parser ;
    PeyoteDialog     *dialog ;
    PeyoteTabs       *tabs ;
-   char *filepath ;
 
 } PeyoteApplication ;
+
+typedef struct _PeyoteFiles
+{
+   GList *list ;
+   PeyoteFile *current ;
+   int n ;
+
+} PeyoteFiles ;
+
+typedef struct _PeyoteFile
+{
+   GtkLabel *tab_label ;
+   GtkScrolledWindow *scroll ;
+   GtkTextView   *text_view ;
+   GtkTextBuffer *text_buffer ;
+
+   PeyoteFileParser *parser ;
+   char *path ;
+
+} PeyoteFile ;
 
 typedef struct _PeyoteRender
 {
@@ -56,12 +78,13 @@ typedef struct _PeyoteWindow
    GtkWindow  *window ;
    GtkAboutDialog *about_dialog ;
    GtkBox *main_box ;
+   GtkNotebook *notebook ;
 
 } PeyoteWindow ;
 
 typedef struct _PeyoteFileParser
 {
-   GtkTextBuffer *tab_text ;
+   PeyoteFile *file ;
    char *tabs, *artist, *song, *album ;
 
 } PeyoteFileParser ;

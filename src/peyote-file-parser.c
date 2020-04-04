@@ -21,7 +21,7 @@
 
 char *peyote_file_parser_get_metadata_value_from_key(char *content, char *key) ;
 char *peyote_file_parser_get_tabs(char *content) ;
-char *peyote_file_parser_make_file_content(void) ;
+char *peyote_file_parser_make_file_content(PeyoteFileParser *parser) ;
 
 PeyoteFileParser *peyote_file_parser_new()
 {
@@ -30,49 +30,49 @@ PeyoteFileParser *peyote_file_parser_new()
    return new ;
 }
 
-int peyote_file_parser_initialize(char *path)
+int peyote_file_parser_initialize(PeyoteFile *file, PeyoteFileParser *parser, GtkTextBuffer *text_buffer, char *filepath)
 {
-   peyote->parser->tab_text = GTK_TEXT_BUFFER(gtk_builder_get_object(
-     peyote->window->builder, "peyote_tab_text")) ;
-   peyote->parser->tabs = NULL ;
-   peyote->parser->artist = NULL ;
-   peyote->parser->song = NULL ;
-   peyote->parser->album = NULL ;
+   parser->file = file ;
+   parser->tabs = NULL ;
+   parser->artist = NULL ;
+   parser->song = NULL ;
+   parser->album = NULL ;
 
-   if (strcmp(path, "NOFILE"))
-      peyote_file_parser_read_file(path) ;
+   if (strcmp(filepath, "NOFILE"))
+      peyote_file_parser_read_file(parser) ;
    return 0 ;
 }
 
-int peyote_file_parser_read_file(char *filepath)
+int peyote_file_parser_read_file(PeyoteFileParser *parser)
 {
-   char *content ;
-   if (!g_file_get_contents(filepath, &content, NULL, NULL))
-      fprintf (stderr, "Peyote ERROR: Could not get content of file %s\n", filepath) ;
-   peyote->filepath = g_strdup(filepath) ;
-   peyote->parser->artist = peyote_file_parser_get_metadata_value_from_key(content, "Artist") ;
-   peyote->parser->song = peyote_file_parser_get_metadata_value_from_key(content, "Song") ;
-   peyote->parser->album = peyote_file_parser_get_metadata_value_from_key(content, "Album") ;
-   peyote->parser->tabs = peyote_file_parser_get_tabs(content) ;
-   peyote_window_set_window_title(g_strdup_printf("Peyote - %s by %s", peyote->parser->song, peyote->parser->artist)) ;
-   gtk_text_buffer_set_text(peyote->parser->tab_text, peyote->parser->tabs, -1) ;
+   char *content, *new_title ;
+   if (!g_file_get_contents(parser->file->path, &content, NULL, NULL))
+      fprintf (stderr, "Peyote ERROR: Could not get content of file %s\n", parser->file->path) ;
+   parser->artist = peyote_file_parser_get_metadata_value_from_key(content, "Artist") ;
+   parser->song = peyote_file_parser_get_metadata_value_from_key(content, "Song") ;
+   parser->album = peyote_file_parser_get_metadata_value_from_key(content, "Album") ;
+   parser->tabs = peyote_file_parser_get_tabs(content) ;
+   new_title = g_strdup_printf("Peyote - %s by %s", parser->song, parser->artist) ;
+   peyote_window_set_window_title(new_title) ;
+   gtk_text_buffer_set_text(parser->file->text_buffer, parser->tabs, -1) ;
+   g_free(new_title) ;
    g_free(content) ;
    return 0 ;
 }
 
 void peyote_file_parser_save_file(char *filepath)
 {
-   g_file_set_contents(filepath, peyote_file_parser_make_file_content(), -1, NULL) ;
+   g_file_set_contents(filepath, peyote_file_parser_make_file_content(peyote->files->current->parser), -1, NULL) ;
    return ;
 }
 
-char *peyote_file_parser_make_file_content()
+char *peyote_file_parser_make_file_content(PeyoteFileParser *parser)
 {
    GtkTextIter start, end ;
-   gtk_text_buffer_get_bounds(peyote->parser->tab_text, &start, &end) ;
+   gtk_text_buffer_get_bounds(parser->file->text_buffer, &start, &end) ;
    return g_strdup_printf("[metadata]\nArtist=%s\nSong=%s\nAlbum=%s\n[tabs]\n%s",
-                          peyote->parser->artist, peyote->parser->song, peyote->parser->album,
-                          gtk_text_buffer_get_text(peyote->parser->tab_text, &start, &end, FALSE)) ;
+                          parser->artist, parser->song, parser->album,
+                          gtk_text_buffer_get_text(parser->file->text_buffer, &start, &end, FALSE)) ;
 }
 
 char *peyote_file_parser_get_tabs(char *content)

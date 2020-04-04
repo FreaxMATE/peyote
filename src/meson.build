@@ -4,6 +4,8 @@ sources = [
   'peyote-window.c',
   'peyote-render.c',
   'peyote-filechooser.c',
+  'peyote-files.c',
+  'peyote-file.c',
   'peyote-menu.c',
   'peyote-tabs.c',
   'peyote-file-parser.c',

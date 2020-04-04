@@ -17,25 +17,39 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_application_h_
-#define _peyote_application_h_
-
-#include "peyote.h"
-#include "peyote-window.h"
-#include "peyote-menu.h"
-#include "peyote-file-parser.h"
 #include "peyote-files.h"
-#include "peyote-file.h"
-#include "peyote-render.h"
-#include "peyote-tabs.h"
-#include "peyote-dialog.h"
 
-extern PeyoteApplication *peyote ;
+PeyoteFiles *peyote_files_new()
+{
+   PeyoteFiles *new ;
+   new = malloc(sizeof(PeyoteFiles)) ;
+   return new ;
+}
 
-PeyoteApplication *peyote_application_new(void) ;
-int peyote_application_initialize(int argc, char **argv) ;
-int peyote_application_run(int argc, char **argv) ;
-gboolean peyote_application_is_new_document(void) ;
+void peyote_files_initialize()
+{
+   peyote->files->n = 0 ;
+   peyote->files->current = NULL ;
+   return ;
+}
 
-#endif /* _peyote_application_h_ */
+void peyote_files_add_file(char *filepath)
+{
+   PeyoteFile *new_file ;
+   ++peyote->files->n ;
+   new_file = peyote_file_new() ;
+   peyote_file_initialize(new_file, filepath) ;
+   peyote->files->current = new_file ;
+   peyote->files->list = g_list_append(peyote->files->list, new_file) ;
+   return ;
+}
+
+void peyote_files_remove_file()
+{
+   --peyote->files->n ;
+   return ;
+}
+
+
+
 
