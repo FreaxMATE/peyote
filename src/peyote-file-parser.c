@@ -97,6 +97,8 @@ char *peyote_file_parser_get_metadata_value_from_key(char *content, char *key)
    char *p ;
    search_string = g_strjoin(NULL, key, "=", NULL) ;
    p = g_strrstr(content, search_string) ;
+   if (p == NULL)
+      return g_strdup("Unknown") ;
    p = &p[(strlen(key)+1)*sizeof(char)] ;
    char *startp = p ;
    int n = 0 ;

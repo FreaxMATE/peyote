@@ -25,6 +25,18 @@
 #include "peyote.h"
 #include "peyote-application.h"
 
+typedef struct _PeyoteFile
+{
+   GtkLabel *tab_label ;
+   GtkScrolledWindow *scroll ;
+   GtkTextView   *text_view ;
+   GtkTextBuffer *text_buffer ;
+
+   PeyoteFileParser *parser ;
+   char *path ;
+
+} PeyoteFile ;
+
 PeyoteFile *peyote_file_new(void) ;
 void peyote_file_initialize(PeyoteFile *file, char *filepath) ;
 

@@ -29,6 +29,13 @@
 #include "peyote-application.h"
 #include "peyote-tabs.h"
 
+typedef struct _PeyoteRender
+{
+   cairo_surface_t *surface ;
+   cairo_t *cr ;
+
+} PeyoteRender ;
+
 PeyoteRender *peyote_render_new(void) ;
 int peyote_render_initialize(void) ;
 int peyote_render_make_pdf(void) ;

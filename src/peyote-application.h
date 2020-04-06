@@ -30,7 +30,18 @@
 #include "peyote-tabs.h"
 #include "peyote-dialog.h"
 
-extern PeyoteApplication *peyote ;
+typedef struct _PeyoteApplication
+{
+   PeyoteWindow     *window ;
+   PeyoteFiles      *files ;
+   PeyoteRender     *render ;
+   PeyoteMenu       *menu ;
+   PeyoteDialog     *dialog ;
+   PeyoteTabs       *tabs ;
+
+} PeyoteApplication ;
+
+PeyoteApplication *peyote ;
 
 PeyoteApplication *peyote_application_new(void) ;
 int peyote_application_initialize(int argc, char **argv) ;

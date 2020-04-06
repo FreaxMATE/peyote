@@ -26,6 +26,13 @@
 #include "peyote-application.h"
 #include "peyote-dialog.h"
 
+typedef struct _PeyoteFileParser
+{
+   PeyoteFile *file ;
+   char *tabs, *artist, *song, *album ;
+
+} PeyoteFileParser ;
+
 PeyoteFileParser *peyote_file_parser_new(void) ;
 int peyote_file_parser_initialize(PeyoteFile *file, PeyoteFileParser *parser, GtkTextBuffer *text_buffer, char *filepath) ;
 int peyote_file_parser_read_file(PeyoteFileParser *parser) ;

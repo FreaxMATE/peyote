@@ -79,3 +79,28 @@ void on_peyote_about_dialog_response()
    return ;
 }
 
+void on_peyote_notebook_switch_page(GtkNotebook *notebook, GtkWidget *page, guint page_num, gpointer user_data)
+{
+   PeyoteFile *file ;
+   GList *filelist ;
+   char *new_title ;
+
+   filelist = peyote->files->list ;
+   while (filelist != NULL)
+   {
+      file = (PeyoteFile *)filelist->data ;
+      if (page == GTK_WIDGET(file->scroll))
+      {
+         peyote->files->current = file ;
+         break ;
+      }
+      filelist = filelist->next ;
+   }
+   if (peyote->files->current == NULL)
+      return ;
+
+   new_title = g_strdup_printf("Peyote - %s by %s", peyote->files->current->parser->song,
+                               peyote->files->current->parser->artist) ;
+   peyote_window_set_window_title (new_title) ;
+   return ;
+}

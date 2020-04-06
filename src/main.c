@@ -17,9 +17,8 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "peyote.h"
 #include "peyote-application.h"
-
-PeyoteApplication *peyote ;
 
 int main (int argc, char **argv)
 {

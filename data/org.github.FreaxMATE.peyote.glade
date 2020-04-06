@@ -364,6 +364,7 @@ Author: FreaxMATE
               <object class="GtkNotebook" id="peyote_notebook">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <signal name="switch-page" handler="on_peyote_notebook_switch_page" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>

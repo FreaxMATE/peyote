@@ -25,6 +25,14 @@
 #include "peyote.h"
 #include "peyote-application.h"
 
+typedef struct _PeyoteFiles
+{
+   GList *list ;
+   PeyoteFile *current ;
+   int n ;
+
+} PeyoteFiles ;
+
 PeyoteFiles *peyote_files_new(void) ;
 void peyote_files_initialize(void) ;
 void peyote_files_add_file() ;
