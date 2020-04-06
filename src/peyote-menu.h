@@ -26,6 +26,13 @@
 #include "peyote-file-parser.h"
 #include "peyote-render.h"
 
+typedef struct _PeyoteMenu
+{
+   GtkImageMenuItem *peyote_menu_open ;
+   GtkImageMenuItem *peyote_menu_quit ;
+
+} PeyoteMenu ;
+
 PeyoteMenu *peyote_menu_new(void) ;
 int peyote_menu_initialize(void) ;
 

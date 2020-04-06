@@ -17,28 +17,26 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_render_h_
-#define _peyote_render_h_
+#ifndef _peyote_files_h_
+#define _peyote_files_h_
 
 #include <gtk/gtk.h>
-#include <cairo.h>
-#include <cairo-pdf.h>
-#include <cairo-svg.h>
 
 #include "peyote.h"
 #include "peyote-application.h"
-#include "peyote-tabs.h"
 
-typedef struct _PeyoteRender
+typedef struct _PeyoteFiles
 {
-   cairo_surface_t *surface ;
-   cairo_t *cr ;
+   GList *list ;
+   PeyoteFile *current ;
+   int n ;
 
-} PeyoteRender ;
+} PeyoteFiles ;
 
-PeyoteRender *peyote_render_new(void) ;
-int peyote_render_initialize(void) ;
-int peyote_render_make_pdf(void) ;
+PeyoteFiles *peyote_files_new(void) ;
+void peyote_files_initialize(void) ;
+void peyote_files_add_file() ;
+void peyote_files_remove_file() ;
 
-#endif /* _peyote_render_h_ */
+#endif /* _peyote_files_h_ */
 

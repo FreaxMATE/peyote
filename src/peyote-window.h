@@ -23,12 +23,23 @@
 #include <gtk/gtk.h>
 
 #include "peyote.h"
+#include "peyote-application.h"
 
-extern PeyoteApplication *peyote ;
+typedef struct _PeyoteWindow
+{
+   GtkBuilder   *builder ;
+   GtkWindow    *window ;
+   GtkNotebook  *notebook ;
+   GtkBox       *main_box ;
+
+   GtkAboutDialog *about_dialog ;
+
+} PeyoteWindow ;
 
 PeyoteWindow *peyote_window_new(void) ;
 int peyote_window_initialize(void) ;
 void peyote_window_set_window_title(char *title) ;
+void peyote_window_quit(void) ;
 
 #endif /* _peyote_window_h_ */
 

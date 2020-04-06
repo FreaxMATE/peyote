@@ -25,6 +25,15 @@
 #include "peyote.h"
 #include "peyote-application.h"
 
+typedef struct _PeyoteDialog
+{
+   GtkDialog *dialog ;
+   GtkButton *cancel, *apply ;
+   GtkEntry *artist_entry, *song_entry, *album_entry ;
+   char *artist, *song, *album ;
+
+} PeyoteDialog ;
+
 PeyoteDialog *peyote_dialog_new(void) ;
 void peyote_dialog_initialize(void) ;
 void peyote_dialog_run(void) ;

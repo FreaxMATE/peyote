@@ -24,71 +24,13 @@
 #include <glib.h>
 
 typedef struct _PeyoteApplication PeyoteApplication ;
-typedef struct _PeyoteRender PeyoteRender ;
-typedef struct _PeyoteWindow PeyoteWindow ;
-typedef struct _PeyoteFileParser PeyoteFileParser ;
-typedef struct _PeyoteTabs PeyoteTabs ;
-typedef struct _PeyoteMenu PeyoteMenu ;
-typedef struct _PeyoteDialog PeyoteDialog ;
-
-typedef struct _PeyoteApplication
-{
-   PeyoteWindow     *window ;
-   PeyoteRender     *render ;
-   PeyoteMenu       *menu ;
-   PeyoteFileParser *parser ;
-   PeyoteDialog     *dialog ;
-   PeyoteTabs       *tabs ;
-   char *filepath ;
-
-} PeyoteApplication ;
-
-typedef struct _PeyoteRender
-{
-   cairo_surface_t *surface ;
-   cairo_t *cr ;
-
-} PeyoteRender ;
-
-typedef struct _PeyoteWindow
-{
-   GtkBuilder *builder ;
-   GtkWindow  *window ;
-   GtkAboutDialog *about_dialog ;
-   GtkBox *main_box ;
-
-} PeyoteWindow ;
-
-typedef struct _PeyoteFileParser
-{
-   GtkTextBuffer *tab_text ;
-   char *tabs, *artist, *song, *album ;
-
-} PeyoteFileParser ;
-
-typedef struct _PeyoteTabs
-{
-   char *tuning ;
-   char **tabs ;
-   int nlinelen, nlines ;
-
-} PeyoteTabs ;
-
-typedef struct _PeyoteMenu
-{
-   GtkImageMenuItem *peyote_menu_open ;
-   GtkImageMenuItem *peyote_menu_quit ;
-
-} PeyoteMenu ;
-
-typedef struct _PeyoteDialog
-{
-   GtkDialog *dialog ;
-   GtkButton *cancel, *apply ;
-   GtkEntry *artist_entry, *song_entry, *album_entry ;
-   char *artist, *song, *album ;
-
-} PeyoteDialog ;
+typedef struct _PeyoteRender      PeyoteRender ;
+typedef struct _PeyoteWindow      PeyoteWindow ;
+typedef struct _PeyoteFiles       PeyoteFiles ;
+typedef struct _PeyoteFile        PeyoteFile ;
+typedef struct _PeyoteFileParser  PeyoteFileParser ;
+typedef struct _PeyoteTabs        PeyoteTabs ;
+typedef struct _PeyoteMenu        PeyoteMenu ;
+typedef struct _PeyoteDialog      PeyoteDialog ;
 
 #endif /* _peyote_h_ */
-

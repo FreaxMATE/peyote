@@ -41,9 +41,9 @@ void peyote_dialog_initialize()
 void peyote_dialog_run()
 {
    gtk_dialog_run(peyote->dialog->dialog) ;
-   peyote->parser->artist = peyote->dialog->artist ;
-   peyote->parser->song = peyote->dialog->song ;
-   peyote->parser->album = peyote->dialog->album ;
+   peyote->files->current->parser->artist = peyote->dialog->artist ;
+   peyote->files->current->parser->song = peyote->dialog->song ;
+   peyote->files->current->parser->album = peyote->dialog->album ;
    gtk_widget_destroy(GTK_WIDGET(peyote->dialog->dialog)) ;
    return ;
 }

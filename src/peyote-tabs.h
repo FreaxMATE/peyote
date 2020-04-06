@@ -23,6 +23,14 @@
 #include "peyote.h"
 #include "peyote-application.h"
 
+typedef struct _PeyoteTabs
+{
+   char *tuning ;
+   char **tabs ;
+   int nlinelen, nlines ;
+
+} PeyoteTabs ;
+
 PeyoteTabs *peyote_tabs_new(void) ;
 int peyote_tabs_initialize(void) ;
 void peyote_tabs_load_tabs(void) ;

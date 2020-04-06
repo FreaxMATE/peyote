@@ -33,7 +33,7 @@ int peyote_tabs_initialize()
 
 void peyote_tabs_load_tabs()
 {
-   if (peyote->parser->tabs == NULL)
+   if (peyote->files->current->parser->tabs == NULL)
    {
       fprintf (stderr, "Peyote ERROR: parser->tabs not initialized\n") ;
       return ;
@@ -42,7 +42,7 @@ void peyote_tabs_load_tabs()
 
    peyote->tabs->nlines = 6 ;
    peyote->tabs->nlinelen = 0 ;
-   while (peyote->parser->tabs[peyote->tabs->nlinelen] != '\n')
+   while (peyote->files->current->parser->tabs[peyote->tabs->nlinelen] != '\n')
       ++peyote->tabs->nlinelen ;
    ++peyote->tabs->nlinelen ;
 
@@ -55,16 +55,16 @@ void peyote_tabs_load_tabs()
    {
       for (i = 0; i < peyote->tabs->nlinelen; ++i)
       {
-         if (peyote->parser->tabs[k] == '\n')
+         if (peyote->files->current->parser->tabs[k] == '\n')
          {
             peyote->tabs->tabs[j][i] = 0 ;
             k++ ;
             break ;
          }
-         if (peyote->parser->tabs[k] == '-')
+         if (peyote->files->current->parser->tabs[k] == '-')
             peyote->tabs->tabs[j][i] = ' ' ;
          else
-            peyote->tabs->tabs[j][i] = peyote->parser->tabs[k] ;
+            peyote->tabs->tabs[j][i] = peyote->files->current->parser->tabs[k] ;
          k++ ;
       }
    }
@@ -73,13 +73,6 @@ void peyote_tabs_load_tabs()
    {
       peyote->tabs->tuning[j] = peyote->tabs->tabs[j][0] ;
    }
-   printf ("%s\n", peyote->tabs->tabs[0]) ;
-   printf ("%s\n", peyote->tabs->tabs[1]) ;
-   printf ("%s\n", peyote->tabs->tabs[2]) ;
-   printf ("%s\n", peyote->tabs->tabs[3]) ;
-   printf ("%s\n", peyote->tabs->tabs[4]) ;
-   printf ("%s\n", peyote->tabs->tabs[5]) ;
-   printf ("%s\n", peyote->tabs->tuning) ;
    return ;
 }
 

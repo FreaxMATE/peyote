@@ -17,28 +17,28 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_render_h_
-#define _peyote_render_h_
+#ifndef _peyote_file_h_
+#define _peyote_file_h_
 
 #include <gtk/gtk.h>
-#include <cairo.h>
-#include <cairo-pdf.h>
-#include <cairo-svg.h>
 
 #include "peyote.h"
 #include "peyote-application.h"
-#include "peyote-tabs.h"
 
-typedef struct _PeyoteRender
+typedef struct _PeyoteFile
 {
-   cairo_surface_t *surface ;
-   cairo_t *cr ;
+   GtkLabel *tab_label ;
+   GtkScrolledWindow *scroll ;
+   GtkTextView   *text_view ;
+   GtkTextBuffer *text_buffer ;
 
-} PeyoteRender ;
+   PeyoteFileParser *parser ;
+   char *path ;
 
-PeyoteRender *peyote_render_new(void) ;
-int peyote_render_initialize(void) ;
-int peyote_render_make_pdf(void) ;
+} PeyoteFile ;
 
-#endif /* _peyote_render_h_ */
+PeyoteFile *peyote_file_new(void) ;
+void peyote_file_initialize(PeyoteFile *file, char *filepath) ;
+
+#endif /* _peyote_file_h_ */
 

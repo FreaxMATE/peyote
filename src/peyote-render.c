@@ -50,12 +50,11 @@ int peyote_render_make_pdf()
    cairo_select_font_face(peyote->render->cr, "Sans", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL) ;
    cairo_set_font_size (peyote->render->cr, 20.0);
    cairo_move_to(peyote->render->cr, 150.0, 50.0) ;
-   cairo_show_text(peyote->render->cr, peyote->parser->song) ;
+   cairo_show_text(peyote->render->cr, peyote->files->current->parser->song) ;
    cairo_set_source_rgb(peyote->render->cr, 0.5, 0.5, 0.5) ;
    cairo_set_font_size (peyote->render->cr, 12.0);
    cairo_move_to(peyote->render->cr, 350.0, 50.0) ;
-   cairo_show_text(peyote->render->cr, peyote->parser->artist) ;
-   printf ("Title drawn.\n") ;
+   cairo_show_text(peyote->render->cr, peyote->files->current->parser->artist) ;
 
    /* draw music lines without tabs */
    int n_paragraphs = 8 ;
@@ -79,7 +78,6 @@ int peyote_render_make_pdf()
       }
       y_tabs += d_paragraph ;
    }
-   printf ("Music lines drawn.\n") ;
 
    /* add tabs to music lines */
    cairo_set_font_size (peyote->render->cr, 6.0);
@@ -112,7 +110,6 @@ int peyote_render_make_pdf()
 //            printf ("x: %d, xpos: %d, y_tabs: %.0f\n", x_vec, x_pos, y_tabs) ;
             if (x_pos >= right_end) // current x position exceeds right end
             {
-               printf ("BREAK\n") ;
                next_paragraph = TRUE ;
                break ;
             }
@@ -144,8 +141,6 @@ int peyote_render_make_pdf()
          y_tabs += d_paragraph + d_line*peyote->tabs->nlines ;
       ++paragraph ;
    }
-
-   printf ("Tabs drawn.\n") ;
 
    cairo_stroke(peyote->render->cr) ;
    cairo_show_page(peyote->render->cr) ;

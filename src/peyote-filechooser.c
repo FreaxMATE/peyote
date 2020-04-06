@@ -66,7 +66,7 @@ void peyote_filechooser_save_file()
    if (peyote_application_is_new_document())
       gtk_file_chooser_set_current_name(chooser, "Untitled document");
    else
-      gtk_file_chooser_set_filename(chooser, peyote->filepath) ;
+      gtk_file_chooser_set_filename(chooser, peyote->files->current->path) ;
 
    res = gtk_dialog_run(GTK_DIALOG(dialog)) ;
    if (res == GTK_RESPONSE_ACCEPT)

@@ -24,11 +24,24 @@
 #include "peyote-window.h"
 #include "peyote-menu.h"
 #include "peyote-file-parser.h"
+#include "peyote-files.h"
+#include "peyote-file.h"
 #include "peyote-render.h"
 #include "peyote-tabs.h"
 #include "peyote-dialog.h"
 
-extern PeyoteApplication *peyote ;
+typedef struct _PeyoteApplication
+{
+   PeyoteWindow     *window ;
+   PeyoteFiles      *files ;
+   PeyoteRender     *render ;
+   PeyoteMenu       *menu ;
+   PeyoteDialog     *dialog ;
+   PeyoteTabs       *tabs ;
+
+} PeyoteApplication ;
+
+PeyoteApplication *peyote ;
 
 PeyoteApplication *peyote_application_new(void) ;
 int peyote_application_initialize(int argc, char **argv) ;
