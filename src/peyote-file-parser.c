@@ -47,7 +47,10 @@ int peyote_file_parser_read_file(PeyoteFileParser *parser)
 {
    char *content, *new_title ;
    if (!g_file_get_contents(parser->file->path, &content, NULL, NULL))
-      fprintf (stderr, "Peyote ERROR: Could not get content of file %s\n", parser->file->path) ;
+   {
+      fprintf (stderr, "Peyote WARNING: Could not get content of file %s\n", parser->file->path) ;
+      return ;
+   }
    parser->artist = peyote_file_parser_get_metadata_value_from_key(content, "Artist") ;
    parser->song = peyote_file_parser_get_metadata_value_from_key(content, "Song") ;
    parser->album = peyote_file_parser_get_metadata_value_from_key(content, "Album") ;
