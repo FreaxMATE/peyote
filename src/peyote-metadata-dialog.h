@@ -17,26 +17,26 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_file_parser_h_
-#define _peyote_file_parser_h_
+#ifndef _peyote_metadata_dialog_h_
+#define _peyote_metadata_dialog_h_
 
 #include <gtk/gtk.h>
 
 #include "peyote.h"
 #include "peyote-application.h"
-#include "peyote-metadata-dialog.h"
 
-typedef struct _PeyoteFileParser
+typedef struct _PeyoteMetadataDialog
 {
-   PeyoteFile *file ;
-   char *tabs, *artist, *song, *album ;
+   GtkDialog *dialog ;
+   GtkButton *cancel, *apply ;
+   GtkEntry *artist_entry, *song_entry, *album_entry ;
+   char *artist, *song, *album ;
 
-} PeyoteFileParser ;
+} PeyoteMetadataDialog ;
 
-PeyoteFileParser *peyote_file_parser_new(void) ;
-int peyote_file_parser_initialize(PeyoteFile *file, PeyoteFileParser *parser, GtkTextBuffer *text_buffer, char *filepath) ;
-int peyote_file_parser_read_file(PeyoteFileParser *parser) ;
-void peyote_file_parser_save_file(char *filepath) ;
+PeyoteMetadataDialog *peyote_metadata_dialog_new(void) ;
+void peyote_metadata_dialog_initialize(void) ;
+void peyote_metadata_dialog_run(void) ;
 
-#endif /* _peyote_file_parser_h_ */
+#endif /* _peyote_metadata_dialog_h_ */
 

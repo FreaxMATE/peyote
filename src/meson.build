@@ -9,7 +9,8 @@ sources = [
   'peyote-menu.c',
   'peyote-tabs.c',
   'peyote-file-parser.c',
-  'peyote-dialog.c',
+  'peyote-metadata-dialog.c',
+  'peyote-export-dialog.c',
 ]
 
 add_project_arguments('-rdynamic', '-Wl,--export-dynamic', language : 'c')
