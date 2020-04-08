@@ -3,6 +3,10 @@ is an open source guitar tab creator for Linux.
 
 ![Peyote](data/icons/hicolor/scalable/apps/org.github.FreaxMATE.peyote.svg)
 
+## Screenshot
+
+![Peyote](data/peyote_screenshot.png)
+
 ## Installation
 ### Dependencies
  - gcc
