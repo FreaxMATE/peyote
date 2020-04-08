@@ -38,12 +38,12 @@ int peyote_file_parser_initialize(PeyoteFile *file, PeyoteFileParser *parser, Gt
    parser->song = NULL ;
    parser->album = NULL ;
 
-   if (strcmp(filepath, "NOFILE"))
+   if (!(filepath == NULL))
       peyote_file_parser_read_file(parser) ;
    return 0 ;
 }
 
-int peyote_file_parser_read_file(PeyoteFileParser *parser)
+void peyote_file_parser_read_file(PeyoteFileParser *parser)
 {
    char *content, *new_title ;
    if (!g_file_get_contents(parser->file->path, &content, NULL, NULL))
@@ -60,7 +60,7 @@ int peyote_file_parser_read_file(PeyoteFileParser *parser)
    gtk_text_buffer_set_text(parser->file->text_buffer, parser->tabs, -1) ;
    g_free(new_title) ;
    g_free(content) ;
-   return 0 ;
+   return ;
 }
 
 void peyote_file_parser_save_file(char *filepath)

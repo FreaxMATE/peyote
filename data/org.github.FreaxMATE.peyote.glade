@@ -48,6 +48,12 @@ Author: FreaxMATE
     <property name="icon_name">application-pdf</property>
     <property name="icon_size">1</property>
   </object>
+  <object class="GtkImage" id="peyote_img_new">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">document-new</property>
+    <property name="icon_size">1</property>
+  </object>
   <object class="GtkImage" id="peyote_img_open">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -100,6 +106,17 @@ Author: FreaxMATE
                       <object class="GtkMenu">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImageMenuItem" id="peyote_menu_new">
+                            <property name="label" translatable="yes">_New</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">peyote_img_new</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="on_peyote_menu_new_activate" swapped="no"/>
+                          </object>
+                        </child>
                         <child>
                           <object class="GtkImageMenuItem" id="peyote_menu_open">
                             <property name="label">_Open</property>
@@ -585,7 +602,7 @@ Author: FreaxMATE
                         <property name="can_focus">False</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkEntry" id="peyote_dialog_artist">
+                          <object class="GtkEntry" id="peyote_metadata_dialog_artist">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="input_purpose">name</property>
@@ -619,7 +636,7 @@ Author: FreaxMATE
                         <property name="can_focus">False</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkEntry" id="peyote_dialog_song">
+                          <object class="GtkEntry" id="peyote_metadata_dialog_song">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="input_purpose">name</property>
@@ -653,7 +670,7 @@ Author: FreaxMATE
                         <property name="can_focus">False</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkEntry" id="peyote_dialog_album">
+                          <object class="GtkEntry" id="peyote_metadata_dialog_album">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="input_purpose">name</property>

@@ -59,6 +59,6 @@ int peyote_application_run(int argc, char **argv)
 
 gboolean peyote_application_is_new_document()
 {
-   return !g_strcmp0(peyote->files->current->path, "NOFILE") ? TRUE : FALSE ;
+   return !(peyote->files->current->path == NULL) ;
 }
 

@@ -29,8 +29,15 @@ PeyoteFile *peyote_file_new()
 void peyote_file_initialize(PeyoteFile *file, char *filepath)
 {
    char *filename ;
-   file->path = g_strdup(filepath) ;
-   filename = g_path_get_basename(filepath) ;
+   if (!(filepath == NULL))
+   {
+      file->path = g_strdup(filepath) ;
+      filename = g_path_get_basename(filepath) ;
+   }
+   else
+   {
+      filename = g_strdup("New File") ;
+   }
    file->tab_label = GTK_LABEL(gtk_label_new(filename)) ;
 
    file->scroll = GTK_SCROLLED_WINDOW(gtk_scrolled_window_new(NULL, NULL)) ;

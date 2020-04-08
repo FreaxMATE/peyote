@@ -38,6 +38,12 @@ int peyote_menu_initialize()
 
 /* Callbacks */
 
+void on_peyote_menu_new_activate()
+{
+   peyote_files_add_file(NULL) ;
+   return ;
+}
+
 void on_peyote_menu_open_activate()
 {
    char *filepath ;
@@ -52,8 +58,8 @@ void on_peyote_menu_open_activate()
 
 void on_peyote_menu_save_activate()
 {
-   if (peyote->files->current->parser->artist == NULL || peyote->files->current->parser->song == NULL
-       || peyote->files->current->parser->album == NULL)
+   if (peyote->files->current->parser->artist == NULL || peyote->files->current->parser->song == NULL ||
+       peyote->files->current->parser->album == NULL)
    {
       peyote_metadata_dialog_run() ;
    }
