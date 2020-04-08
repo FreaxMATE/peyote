@@ -38,8 +38,10 @@ int peyote_application_initialize(int argc, char **argv)
    peyote_render_initialize() ;
    peyote->menu = peyote_menu_new() ;
    peyote_menu_initialize() ;
-   peyote->dialog = peyote_dialog_new() ;
-   peyote_dialog_initialize() ;
+   peyote->metadata_dialog = peyote_metadata_dialog_new() ;
+   peyote_metadata_dialog_initialize() ;
+   peyote->export_dialog = peyote_export_dialog_new() ;
+   peyote_export_dialog_initialize() ;
    peyote->tabs = peyote_tabs_new() ;
    peyote_tabs_initialize() ;
    if (argc > 2)

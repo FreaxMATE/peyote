@@ -28,7 +28,7 @@
 #include "peyote-file.h"
 #include "peyote-render.h"
 #include "peyote-tabs.h"
-#include "peyote-dialog.h"
+#include "peyote-metadata-dialog.h"
 
 typedef struct _PeyoteApplication
 {
@@ -36,8 +36,9 @@ typedef struct _PeyoteApplication
    PeyoteFiles      *files ;
    PeyoteRender     *render ;
    PeyoteMenu       *menu ;
-   PeyoteDialog     *dialog ;
    PeyoteTabs       *tabs ;
+   PeyoteMetadataDialog *metadata_dialog ;
+   PeyoteExportDialog *export_dialog ;
 
 } PeyoteApplication ;
 

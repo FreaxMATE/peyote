@@ -28,6 +28,7 @@
 #include "peyote.h"
 #include "peyote-application.h"
 #include "peyote-tabs.h"
+#include "peyote-export-dialog.h"
 
 typedef struct _PeyoteRender
 {

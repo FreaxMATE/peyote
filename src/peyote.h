@@ -31,6 +31,7 @@ typedef struct _PeyoteFile        PeyoteFile ;
 typedef struct _PeyoteFileParser  PeyoteFileParser ;
 typedef struct _PeyoteTabs        PeyoteTabs ;
 typedef struct _PeyoteMenu        PeyoteMenu ;
-typedef struct _PeyoteDialog      PeyoteDialog ;
+typedef struct _PeyoteMetadataDialog PeyoteMetadataDialog ;
+typedef struct _PeyoteExportDialog PeyoteExportDialog ;
 
 #endif /* _peyote_h_ */

@@ -61,19 +61,27 @@ int peyote_render_make_pdf()
    int d_line = 5 ;        // distance between the six music lines
    int d_paragraph = 30 ;  // distance between the music paragraphs
    double upper_end = 80.0 ;
-   int right_end = 450 ;
-   int left_end = 40 ;
    int d_notes = 5 ;      // x distance between the picking points
    int j, i ;
+
+
+   double left_end, right_end ;
+
+   left_end = peyote->export_dialog->left_margin ;
+   right_end = peyote->export_dialog->right_margin ;
+
+
+
    double y_tabs = upper_end ;
+
    cairo_set_source_rgba(peyote->render->cr, 0, 0, 0, 1) ;
    cairo_set_line_width(peyote->render->cr, 0.5) ;
    for (j = 0; j < n_paragraphs; ++j)
    {
       for (i = 0; i < peyote->tabs->nlines; ++i)
       {
-         cairo_move_to(peyote->render->cr, 50, y_tabs) ;
-         cairo_line_to(peyote->render->cr, 450, y_tabs) ;
+         cairo_move_to(peyote->render->cr, left_end+10, y_tabs) ;
+         cairo_line_to(peyote->render->cr, right_end, y_tabs) ;
          y_tabs += d_line ;
       }
       y_tabs += d_paragraph ;

@@ -55,7 +55,7 @@ void on_peyote_menu_save_activate()
    if (peyote->files->current->parser->artist == NULL || peyote->files->current->parser->song == NULL
        || peyote->files->current->parser->album == NULL)
    {
-      peyote_dialog_run() ;
+      peyote_metadata_dialog_run() ;
    }
    peyote_filechooser_save_file() ;
    return ;
@@ -63,6 +63,7 @@ void on_peyote_menu_save_activate()
 
 void on_peyote_menu_make_pdf_activate()
 {
+   peyote_export_dialog_run() ;
    peyote_render_make_pdf() ;
    return ;
 }

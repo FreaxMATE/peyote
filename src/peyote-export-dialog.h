@@ -17,26 +17,26 @@
  * along with Peyote.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _peyote_dialog_h_
-#define _peyote_dialog_h_
+#ifndef _peyote_export_dialog_h_
+#define _peyote_export_dialog_h_
 
 #include <gtk/gtk.h>
 
 #include "peyote.h"
 #include "peyote-application.h"
 
-typedef struct _PeyoteDialog
+typedef struct _PeyoteExportDialog
 {
    GtkDialog *dialog ;
-   GtkButton *cancel, *apply ;
-   GtkEntry *artist_entry, *song_entry, *album_entry ;
-   char *artist, *song, *album ;
+   GtkButton *cancel, *export ;
+   GtkSpinButton *left_margin_entry, *right_margin_entry ;
+   double left_margin, right_margin ;
 
-} PeyoteDialog ;
+} PeyoteExportDialog ;
 
-PeyoteDialog *peyote_dialog_new(void) ;
-void peyote_dialog_initialize(void) ;
-void peyote_dialog_run(void) ;
+PeyoteExportDialog *peyote_export_dialog_new(void) ;
+void peyote_export_dialog_initialize(void) ;
+void peyote_export_dialog_run(void) ;
 
-#endif /* _peyote_dialog_h_ */
+#endif /* _peyote_export_dialog_h_ */
 
